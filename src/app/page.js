@@ -5,8 +5,8 @@ export default function Home() {
 	return (
 		<div>
 			<ImagesContainer>
-				<GalleryImage description={"Animals In Nature"} src="/images/bird.webp" id={"a"} />
-				<GalleryImage description={"Animals In Nature"} src="/images/bird.webp" id={"a"} />
+				<GalleryImage description={"Animals In Nature and yeah"} src="/images/bird.webp" id={"a"} />
+				<GalleryImage description={"Animals In Nature"} src="/images/green-bird.jpg" id={"a"} />
 				<GalleryImage description={"Animals In Nature"} src="/images/bird.webp" id={"a"} />
 				<GalleryImage description={"Animals In Nature"} src="/images/bird.webp" id={"a"} />
 				<GalleryImage description={"Animals In Nature"} src="/images/bird.webp" id={"a"} />
