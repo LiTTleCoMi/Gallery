@@ -1,20 +1,23 @@
-import CategoryImage from "./_components/CategoryImage";
+import ImagesContainer from "./_components/ImagesContainer";
+import GalleryImage from "./_components/GalleryImage";
 
 export default function Home() {
-    return (
-		<div className="grid grid-cols-4 gap-3 p-3">
-			<CategoryImage description={"Animals In Nature"} id={"a"}/>
-			<CategoryImage description={"Animals In Nature"} id={"a"}/>
-			<CategoryImage description={"Animals In Nature"} id={"a"}/>
-			<CategoryImage description={"Animals In Nature"} id={"a"}/>
-			<CategoryImage description={"Animals In Nature"} id={"a"}/>
-			<CategoryImage description={"Animals In Nature"} id={"a"}/>
-			<CategoryImage description={"Animals In Nature"} id={"a"}/>
-			<CategoryImage description={"Animals In Nature"} id={"a"}/>
-			<CategoryImage description={"Animals In Nature"} id={"a"}/>
-			<CategoryImage description={"Animals In Nature"} id={"a"}/>
-			<CategoryImage description={"Animals In Nature"} id={"a"}/>
-			<CategoryImage description={"Animals In Nature"} id={"a"}/>
+	return (
+		<div>
+			<ImagesContainer>
+				<GalleryImage description={"Animals In Nature"} src="/images/bird.webp" id={"a"} />
+				<GalleryImage description={"Animals In Nature"} src="/images/bird.webp" id={"a"} />
+				<GalleryImage description={"Animals In Nature"} src="/images/bird.webp" id={"a"} />
+				<GalleryImage description={"Animals In Nature"} src="/images/bird.webp" id={"a"} />
+				<GalleryImage description={"Animals In Nature"} src="/images/bird.webp" id={"a"} />
+				<GalleryImage description={"Animals In Nature"} src="/images/bird.webp" id={"a"} />
+				<GalleryImage description={"Animals In Nature"} src="/images/bird.webp" id={"a"} />
+				<GalleryImage description={"Animals In Nature"} src="/images/bird.webp" id={"a"} />
+				<GalleryImage description={"Animals In Nature"} src="/images/bird.webp" id={"a"} />
+				<GalleryImage description={"Animals In Nature"} src="/images/bird.webp" id={"a"} />
+				<GalleryImage description={"Animals In Nature"} src="/images/bird.webp" id={"a"} />
+				<GalleryImage description={"Animals In Nature"} src="/images/bird.webp" id={"a"} />
+			</ImagesContainer>
 		</div>
 	);
 }
