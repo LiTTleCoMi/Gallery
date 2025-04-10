@@ -1,9 +1,9 @@
-import GalleryImage from "@/app/_components/GalleryImage";
+import SingleImage from "./_components/SingleImage";
 
 export default function ViewImage() {
 	return (
-		<div className="flex flex-col gap-3 p-3">
-			<GalleryImage description={"Animals In Nature"} src="/images/bird.webp" id={"a"} />
+		<div className="flex flex-col gap-3 pt-3 px-1">
+			<SingleImage src={"/images/bird.webp"} description={"Green Bird"} />
 		</div>
 	);
 }
