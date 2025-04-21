@@ -7,12 +7,14 @@ import PageSelector from "./_components/PageSelector";
 
 export default function Home() {
 	const [data, setData] = useState(null);
+	const [links, setLinks] = useState(null);
 
 	useEffect(() => {
 		const load = async () => {
 			try {
 				const res = await fetchCategories();
-				setData(res);
+				setData(res.data);
+				setLinks(res.link);
 				console.log("Fetched categories:", res);
 			} catch (err) {
 				console.error(err);
@@ -29,7 +31,7 @@ export default function Home() {
                     return <GalleryImage key={item.id} title={item.title} alt={item.cover_photo.alt_description} src={item.preview_photos[Math.floor(Math.random() * item.preview_photos.length)].urls.full} id={"a"} route="category" />;
                 })}
             </ImagesContainer>
-            <PageSelector totalPages={10} />
+			<PageSelector header={links} current={1} />
 		</div>
 	);
 }
