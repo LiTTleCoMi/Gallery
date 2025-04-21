@@ -2,7 +2,9 @@ export default async function handler(req, res) {
 	const API_URL = process.env.NEXT_PUBLIC_API_URL;
 	const ACCESS_KEY = process.env.API_ACCESS_KEY;
 
-	const response = await fetch(`${API_URL}topics?page=1`, {
+	const { page } = req.query;
+
+	const response = await fetch(`${API_URL}topics?${page && "page=" + page}`, {
 		headers: {
 			Authorization: `Client-ID ${ACCESS_KEY}`,
 			"Accept-Version": "v1",
