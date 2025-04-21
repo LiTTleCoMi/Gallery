@@ -12,7 +12,7 @@ export default function PageSelector({ totalPages }) {
 				<button className="flex justify-center items-center rounded-full p-1 bg-slate-600 w-7 h-7">
 					<span>1</span>
 				</button>
-				<form onSubmit="" className="flex justify-center items-center rounded-full hover:bg-slate-600">
+				<form className="flex justify-center items-center rounded-full hover:bg-slate-600">
 					<input type="number" step="1" className="rounded-full w-7 h-7 text-center focus:outline-none" placeholder="..." />
 				</form>
 				<button className="rounded-full p-1 w-7 h-7 hover:bg-slate-600">
