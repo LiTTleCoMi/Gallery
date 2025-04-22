@@ -50,7 +50,7 @@ export default function Home() {
 			<ImagesContainer>
 				{data?.map((item) => {
 					const preview = item.preview_photos[Math.floor(Math.random() * item.preview_photos.length)];
-					return <GalleryImage key={item.id} title={item.title} alt={item.cover_photo.alt_description} src={preview.urls.full} id="a" route="category" />;
+					return <GalleryImage key={item.id} title={item.title} alt={item.cover_photo.alt_description} src={preview.urls.full} id={`${item.id}--${item.title}`} route="category" />;
 				})}
 			</ImagesContainer>
 			<PageSelector header={links} current={Number(page)} setParam={setParam} />

@@ -1,6 +1,12 @@
+"use state";
+import { useState } from "react";
+
 export default function PageSelector({ header, current, setParam }) {
-	function lastChar(string) {
-		return string[string.length - 1];
+	const [inputValue, setInputValue] = useState('');
+
+    function extractTrailingNumber(str) {
+		const m = str.match(/(\d+)$/);
+		return m ? Number(m[1]) : null;
 	}
 	function parseLinkHeader(h) {
 		if (!h) return {};
@@ -9,7 +15,7 @@ export default function PageSelector({ header, current, setParam }) {
 				const [urlPart, relPart] = part.split(";").map((s) => s.trim());
 				const url = urlPart.slice(1, -1); // remove < >
 				const rel = relPart.match(/rel="(.*?)"/)?.[1];
-				return [rel, { url: url, page: lastChar(url) }];
+				return [rel, { url: url, page: extractTrailingNumber(url) }];
 			})
 		);
 	}
@@ -22,15 +28,21 @@ export default function PageSelector({ header, current, setParam }) {
 			else min = current;
 			if (links.last) max = links.last;
 			else max = current;
-			return [min, max]
+			return [min, max];
 		}
 	}
+	const [min, max] = getMinMaxPage();
 	function goTo(pageNum) {
+		setInputValue("");
 		let p = Number(pageNum);
 		if (isNaN(p)) return;
-		// if (p < minPage) p = minPage;
-		// if (p > maxPage) p = maxPage;
-		setParam("page", pageNum);
+		if (p < min) p = min;
+		if (p > max) p = max;
+		setParam("page", String(p));
+	}
+	function onSubmit(e) {
+		e.preventDefault();
+		goTo(inputValue);
 	}
 
 	return (
@@ -50,8 +62,8 @@ export default function PageSelector({ header, current, setParam }) {
 				<button className="flex justify-center items-center rounded-full p-1 bg-slate-600 w-7 h-7">
 					<span>{current}</span>
 				</button>
-				<form className="flex justify-center items-center rounded-full hover:bg-slate-600">
-					<input type="number" step="1" className="rounded-full w-7 h-7 text-center focus:outline-none" placeholder="..." />
+				<form onSubmit={onSubmit} className="flex">
+					<input type="number" step="1" min="1" max={links.last?.page} value={inputValue} onChange={(e) => setInputValue(e.target.value)} className="w-7 h-7 text-center rounded-full focus:outline-none bg-slate-700" placeholder="…" />
 				</form>
 				{links?.next && (
 					<button onClick={() => goTo(links.next.page)} className="rounded-full p-1 w-7 h-7 hover:bg-slate-600">
