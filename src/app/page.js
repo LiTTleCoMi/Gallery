@@ -1,11 +1,11 @@
 import { Suspense } from "react";
-import HomeClient from "./HomeClient";
+import CategoriesView from "./CategoriesView";
 
 export default function Home() {
 
 	return (
 		<Suspense fallback={<div className="p-4 text-center">Loading…</div>}>
-			<HomeClient />
+			<CategoriesView />
 		</Suspense>
 	);
 }
