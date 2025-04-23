@@ -51,7 +51,7 @@ export default function Category() {
 			<h1 className="text-3xl font-bold text-center">{category}</h1>
 			<ImagesContainer>
 				{data?.map((item) => {
-					return <GalleryImage key={item.id} title={null} alt={item.alt_description ? item.alt_description : "No Description"} src={item.urls.full} id={item.id} route="category" />;
+					return <GalleryImage key={item.id} title={null} alt={item.alt_description ? item.alt_description : "No Description"} src={item.urls.full} id={item.id} route="image" />;
 				})}
 			</ImagesContainer>
 			<PageSelector header={links} current={Number(page)} setParam={setParam} />
