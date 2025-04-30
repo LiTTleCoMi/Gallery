@@ -1,10 +1,10 @@
 import { Suspense } from "react";
-import CategoryView from "./CategoryView";
+import CategoryPage from "./CategoryPage";
 
 export default function Category() {
 	return (
 		<Suspense fallback={<div className="p-4 text-center">Loading…</div>}>
-			<CategoryView />
+			<CategoryPage />
 		</Suspense>
 	);
 }
